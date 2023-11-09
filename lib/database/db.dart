@@ -16,6 +16,7 @@ class db {
     final db = await initializeDB();
     await db.insert('usuarios', usuario.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
+    ConflictAlgorithm.replace;
   }
 
   Future<List<Usuario>> listarUsuarios() async {
@@ -23,5 +24,10 @@ class db {
     final List<Map<String, dynamic>> queryResult =
         await db.query('usuarios', orderBy: 'id');
     return queryResult.map((e) => Usuario.fromMap(e)).toList();
+  }
+
+  Future<void> eliminarUsuario(int id) async {
+    final db = await initializeDB();
+    await db.delete('usuarios', where: 'id = ?', whereArgs: [id]);
   }
 }

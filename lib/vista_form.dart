@@ -3,7 +3,7 @@ import 'package:networking_s12_2/Modelo/Usuario.dart';
 import 'package:networking_s12_2/database/db.dart';
 
 class VistaForm extends StatefulWidget {
-  const VistaForm({Key? key}) : super(key: key);
+  const VistaForm({Key? key});
 
   @override
   State<VistaForm> createState() => _VistaFormState();
